@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<taglib version="2.0" xmlns="http://java.sun.com/xml/ns/j2ee" 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+  xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee web-jsptaglibrary_2_0.xsd">
+  <tlib-version>1.0</tlib-version>
+    <short-name>dateTag</short-name>
+    <uri>/WEB-INF/DateTag</uri>
+    <tag>
+        <name>today</name>
+        <tag-class>ua.epam.airline.tags.TodayTag</tag-class>
+        <body-content>empty</body-content>
+        <info>Date tag displayes server date in user-given format</info>
+        <attribute>
+            <name>format</name>
+            <required>true</required>
+            <description>Display format needed</description>
+            <rtexprvalue>false</rtexprvalue>
+        </attribute>
+    </tag>
+</taglib>

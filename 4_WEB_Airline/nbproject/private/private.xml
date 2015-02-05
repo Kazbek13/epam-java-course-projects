@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/C:/Users/Andrew/Documents/NetBeansProjects/Airline/src/java/ua/epam/airline/model/logic/airport/CreateAirportInstanceCommand.java</file>
+            <file>file:/C:/Users/Andrew/Documents/NetBeansProjects/Airline/src/java/ua/epam/airline/model/logic/flight/CreateFlightInstanceCommand.java</file>
+            <file>file:/C:/Users/Andrew/Documents/NetBeansProjects/Airline/src/java/ua/epam/airline/model/logic/aircraft/ShowCreateAircraftCommand.java</file>
+            <file>file:/C:/Users/Andrew/Documents/NetBeansProjects/Airline/web/WEB-INF/view/aircrafts.jsp</file>
+            <file>file:/C:/Users/Andrew/Documents/NetBeansProjects/Airline/src/java/ua/epam/airline/model/logic/flight/ShowFlightsPageCommand.java</file>
+            <file>file:/C:/Users/Andrew/Documents/NetBeansProjects/Airline/resources/strings.properties</file>
+            <file>file:/C:/Users/Andrew/Documents/NetBeansProjects/Airline/src/java/ua/epam/airline/model/logic/Command.java</file>
+            <file>file:/C:/Users/Andrew/Documents/NetBeansProjects/Airline/src/java/ua/epam/airline/model/logic/aircraft/DeleteAircraftCommand.java</file>
+            <file>file:/C:/Users/Andrew/Documents/NetBeansProjects/Airline/src/java/ua/epam/airline/model/logic/shuttleflight/CreateShuttleFlightInstanceCommand.java</file>
+            <file>file:/C:/Users/Andrew/Documents/NetBeansProjects/Airline/src/java/ua/epam/airline/model/logic/airport/UpdateAirportInstanceCommand.java</file>
+            <file>file:/C:/Users/Andrew/Documents/NetBeansProjects/Airline/src/java/ua/epam/airline/model/logic/aircraft/CreateAircraftInstanceCommand.java</file>
+            <file>file:/C:/Users/Andrew/Documents/NetBeansProjects/Airline/web/WEB-INF/view/shuttleFlights.jsp</file>
+            <file>file:/C:/Users/Andrew/Documents/NetBeansProjects/Airline/src/java/ua/epam/airline/model/logic/aircraft/ShowAircraftsPageCommand.java</file>
+            <file>file:/C:/Users/Andrew/Documents/NetBeansProjects/Airline/src/java/ua/epam/airline/model/logic/flight/ShowUpdateFlightCommand.java</file>
+            <file>file:/C:/Users/Andrew/Documents/NetBeansProjects/Airline/src/java/ua/epam/airline/model/logic/CommandFactory.java</file>
+            <file>file:/C:/Users/Andrew/Documents/NetBeansProjects/Airline/src/java/ua/epam/airline/model/logic/airport/ShowCreateAirportCommand.java</file>
+            <file>file:/C:/Users/Andrew/Documents/NetBeansProjects/Airline/src/java/ua/epam/airline/model/logic/employee/CreateEmployeeInstanceCommand.java</file>
+            <file>file:/C:/Users/Andrew/Documents/NetBeansProjects/Airline/src/java/ua/epam/airline/controllers/AirportCRUDController.java</file>
+            <file>file:/C:/Users/Andrew/Documents/NetBeansProjects/Airline/web/WEB-INF/view/flightInstance.jsp</file>
+            <file>file:/C:/Users/Andrew/Documents/NetBeansProjects/Airline/src/java/ua/epam/airline/model/logic/flight/UpdateFlightInstanceCommand.java</file>
+            <file>file:/C:/Users/Andrew/Documents/NetBeansProjects/Airline/src/java/ua/epam/airline/model/logic/LogoutCommand.java</file>
+            <file>file:/C:/Users/Andrew/Documents/NetBeansProjects/Airline/web/WEB-INF/view/crudError.jsp</file>
+            <file>file:/C:/Users/Andrew/Documents/NetBeansProjects/Airline/src/java/ua/epam/airline/controllers/AircraftCRUDController.java</file>
+            <file>file:/C:/Users/Andrew/Documents/NetBeansProjects/Airline/src/java/ua/epam/airline/model/logic/shuttleflight/SaveCabinCrewCommand.java</file>
+            <file>file:/C:/Users/Andrew/Documents/NetBeansProjects/Airline/src/java/ua/epam/airline/model/logic/airport/ShowUpdateAirportCommand.java</file>
+            <file>file:/C:/Users/Andrew/Documents/NetBeansProjects/Airline/src/java/ua/epam/airline/model/logic/shuttleflight/EditCabinCrewCommand.java</file>
+        </group>
+    </open-files>
+</project-private>
