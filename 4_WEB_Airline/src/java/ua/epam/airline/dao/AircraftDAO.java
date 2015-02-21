@@ -43,7 +43,7 @@ public class AircraftDAO {
         }
     }
 
-    public List<Aircraft> getAllAircrafts() throws SQLException {
+    public List<Aircraft> getAllAircrafts() {
         List<Aircraft> aircrafts = new ArrayList<>();
         PreparedStatement ps = null;
         ResultSet rs = null;
@@ -73,19 +73,31 @@ public class AircraftDAO {
             logger.error("SQLException in AircraftDAO::getAllAircrafts", ex);
         } finally {
             if (ps != null) {
-                ps.close();
+                try {
+                    ps.close();
+                } catch (SQLException ex) {
+                    logger.error("Close PreparedStatement SQLException in AircraftDAO::getAllAircrafts", ex);
+                }
             }
             if (rs != null) {
-                rs.close();
+                try {
+                    rs.close();
+                } catch (SQLException ex) {
+                    logger.error("Close ResultSet SQLException in AircraftDAO::getAllAircrafts", ex);
+                }
             }
             if (connection != null) {
-                connection.close();
+                try {
+                    connection.close();
+                } catch (SQLException ex) {
+                    logger.error("Close Connection SQLException in AircraftDAO::getAllAircrafts", ex);
+                }
             }
         }
         return aircrafts;
     }
 
-    public void createAircraft(Aircraft aircraft) throws SQLException, AircraftAlreadyExistsException {
+    public void createAircraft(Aircraft aircraft) throws AircraftAlreadyExistsException {
         PreparedStatement ps = null;
         Connection connection = null;
 
@@ -110,15 +122,23 @@ public class AircraftDAO {
             logger.error("SQLException in AircraftDAO::createAircraft", ex);
         } finally {
             if (ps != null) {
-                ps.close();
+                try {
+                    ps.close();
+                } catch (SQLException ex) {
+                    logger.error("Close PreparedStatement SQLException in AircraftDAO::createAircraft", ex);
+                }
             }
             if (connection != null) {
-                connection.close();
+                try {
+                    connection.close();
+                } catch (SQLException ex) {
+                    logger.error("Close Connection SQLException in AircraftDAO::createAircraft", ex);
+                }
             }
         }
     }
     
-    public void deleteAircraft(String regNum) throws SQLException {
+    public void deleteAircraft(String regNum) {
         PreparedStatement ps = null;
         Connection connection = null;
 
@@ -133,10 +153,18 @@ public class AircraftDAO {
             logger.error("SQLException in AircraftDAO::deleteAircraft", ex);
         } finally {
             if (ps != null) {
-                ps.close();
+                try {
+                    ps.close();
+                } catch (SQLException ex) {
+                    logger.error("Close PreparedStatement SQLException in AircraftDAO::deleteAircraft", ex);
+                }
             }
             if (connection != null) {
-                connection.close();
+                try {
+                    connection.close();
+                } catch (SQLException ex) {
+                    logger.error("Close Connection SQLException in AircraftDAO::deleteAircraft", ex);
+                }
             }
         }
     }

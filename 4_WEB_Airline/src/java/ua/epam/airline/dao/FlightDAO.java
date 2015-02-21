@@ -44,7 +44,7 @@ public class FlightDAO {
         }
     }
 
-    public List<Flight> getAllFlights() throws SQLException {
+    public List<Flight> getAllFlights() {
         List<Flight> flights = new ArrayList<>();
         PreparedStatement ps = null;
         ResultSet rs = null;
@@ -81,19 +81,31 @@ public class FlightDAO {
             logger.error("SQLException in FlightDAO::getAllFlights", ex);
         } finally {
             if (ps != null) {
-                ps.close();
+                try {
+                    ps.close();
+                } catch (SQLException ex) {
+                    logger.error("Close PreparedStatement SQLException in FlightDAO::getAllFlights", ex);
+                }
             }
             if (rs != null) {
-                rs.close();
+                try {
+                    rs.close();
+                } catch (SQLException ex) {
+                    logger.error("Close ResultSet SQLException in FlightDAO::getAllFlights", ex);
+                }
             }
             if (connection != null) {
-                connection.close();
+                try {
+                    connection.close();
+                } catch (SQLException ex) {
+                    logger.error("Close Connection SQLException in FlightDAO::getAllFlights", ex);
+                }
             }
         }
         return flights;
     }
 
-    public Flight getFlight(String flightNumber) throws SQLException {
+    public Flight getFlight(String flightNumber) {
         PreparedStatement ps = null;
         Connection connection = null;
         ResultSet rs = null;
@@ -130,20 +142,32 @@ public class FlightDAO {
             logger.error("SQLException in FlightDAO::getFlight", ex);
         } finally {
             if (ps != null) {
-                ps.close();
+                try {
+                    ps.close();
+                } catch (SQLException ex) {
+                    logger.error("Close PreparedStatement SQLException in FlightDAO::getFlight", ex);
+                }
             }
             if (rs != null) {
-                ps.close();
+                try {
+                    rs.close();
+                } catch (SQLException ex) {
+                    logger.error("Close ResultSet SQLException in FlightDAO::getFlight", ex);
+                }
             }
             if (connection != null) {
-                connection.close();
+                try {
+                    connection.close();
+                } catch (SQLException ex) {
+                    logger.error("Close Connection SQLException in FlightDAO::getFlight", ex);
+                }
             }
         }
 
         return flight;
     }
 
-    public void createFlight(Flight flight) throws SQLException, FlightAlreadyExistsException {
+    public void createFlight(Flight flight) throws FlightAlreadyExistsException {
         PreparedStatement ps = null;
         Connection connection = null;
 
@@ -164,15 +188,23 @@ public class FlightDAO {
             logger.error("SQLException in FlightDAO::createFlight", ex);
         } finally {
             if (ps != null) {
-                ps.close();
+                try {
+                    ps.close();
+                } catch (SQLException ex) {
+                    logger.error("Close PreparedStatement SQLException in FlightDAO::createFlight", ex);
+                }
             }
             if (connection != null) {
-                connection.close();
+                try {
+                    connection.close();
+                } catch (SQLException ex) {
+                    logger.error("Close Connection SQLException in FlightDAO::createFlight", ex);
+                }
             }
         }
     }
 
-    public void updateFlight(Flight flight, String oldFlightNumber) throws SQLException, FlightAlreadyExistsException {
+    public void updateFlight(Flight flight, String oldFlightNumber) throws FlightAlreadyExistsException {
         PreparedStatement ps = null;
         Connection connection = null;
 
@@ -194,15 +226,23 @@ public class FlightDAO {
             logger.error("SQLException in FlightDAO::updateFlight", ex);
         } finally {
             if (ps != null) {
-                ps.close();
+                try {
+                    ps.close();
+                } catch (SQLException ex) {
+                    logger.error("Close PreparedStatement SQLException in FlightDAO::updateFlight", ex);
+                }
             }
             if (connection != null) {
-                connection.close();
+                try {
+                    connection.close();
+                } catch (SQLException ex) {
+                    logger.error("Close Connection SQLException in FlightDAO::updateFlight", ex);
+                }
             }
         }
     }
 
-    public void deleteFlight(String flightNumber) throws SQLException {
+    public void deleteFlight(String flightNumber) {
         PreparedStatement ps = null;
         Connection connection = null;
 
@@ -217,10 +257,18 @@ public class FlightDAO {
             logger.error("SQLException in FlightDAO::deleteFlight", ex);
         } finally {
             if (ps != null) {
-                ps.close();
+                try {
+                    ps.close();
+                } catch (SQLException ex) {
+                    logger.error("Close PreparedStatement SQLException in FlightDAO::deleteFlight", ex);
+                }
             }
             if (connection != null) {
-                connection.close();
+                try {
+                    connection.close();
+                } catch (SQLException ex) {
+                    logger.error("Close Connection SQLException in FlightDAO::deleteFlight", ex);
+                }
             }
         }
     }

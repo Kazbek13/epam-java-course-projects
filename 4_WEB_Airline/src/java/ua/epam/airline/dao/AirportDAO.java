@@ -11,6 +11,7 @@ import java.sql.SQLIntegrityConstraintViolationException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
+import java.util.logging.Level;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import ua.epam.airline.exceptions.AirportAlreadyExistsException;
@@ -43,7 +44,7 @@ public class AirportDAO {
         }
     }
 
-    public List<Airport> getAllAirports() throws SQLException {
+    public List<Airport> getAllAirports() {
         List<Airport> airports = new ArrayList<>();
         PreparedStatement ps = null;
         ResultSet rs = null;
@@ -68,19 +69,31 @@ public class AirportDAO {
             logger.error("SQLException in AirportDAO::getAllAirports", ex);
         } finally {
             if (ps != null) {
-                ps.close();
+                try {
+                    ps.close();
+                } catch (SQLException ex) {
+                    logger.error("Close PreparedStatement SQLException in AirportDAO::getAllAirports", ex);
+                }
             }
             if (rs != null) {
-                rs.close();
+                try {
+                    rs.close();
+                } catch (SQLException ex) {
+                    logger.error("Close ResultSet SQLException in AirportDAO::getAllAirports", ex);
+                }
             }
             if (connection != null) {
-                connection.close();
+                try {
+                    connection.close();
+                } catch (SQLException ex) {
+                    logger.error("Close Connection SQLException in AirportDAO::getAllAirports", ex);
+                }
             }
         }
         return airports;
     }
 
-    public Airport getAirport(String iataCode) throws SQLException {
+    public Airport getAirport(String iataCode) {
         PreparedStatement ps = null;
         Connection connection = null;
         ResultSet rs = null;
@@ -103,20 +116,32 @@ public class AirportDAO {
             logger.error("SQLException in AirportDAO::getAirport", ex);
         } finally {
             if (ps != null) {
-                ps.close();
+                try {
+                    ps.close();
+                } catch (SQLException ex) {
+                    logger.error("Close PreparedStatement SQLException in AirportDAO::getAirport", ex);
+                }
             }
             if (rs != null) {
-                ps.close();
+                try {
+                    rs.close();
+                } catch (SQLException ex) {
+                    logger.error("Close ResultSet SQLException in AirportDAO::getAirport", ex);
+                }
             }
             if (connection != null) {
-                connection.close();
+                try {
+                    connection.close();
+                } catch (SQLException ex) {
+                    logger.error("Close Connection SQLException in AirportDAO::getAirport", ex);
+                }
             }
         }
 
         return airport;
     }
 
-    public void createAirport(Airport airport) throws SQLException, AirportAlreadyExistsException {
+    public void createAirport(Airport airport) throws AirportAlreadyExistsException {
         PreparedStatement ps = null;
         Connection connection = null;
 
@@ -136,15 +161,23 @@ public class AirportDAO {
             logger.error("SQLException in AirportDAO::createAirport", ex);
         } finally {
             if (ps != null) {
-                ps.close();
+                try {
+                    ps.close();
+                } catch (SQLException ex) {
+                    logger.error("Close PreparedStatement SQLException in AirportDAO::createAirport", ex);
+                }
             }
             if (connection != null) {
-                connection.close();
+                try {
+                    connection.close();
+                } catch (SQLException ex) {
+                    logger.error("Close Connection SQLException in AirportDAO::createAirport", ex);
+                }
             }
         }
     }
 
-    public void updateAirport(Airport airport, String oldIataCode) throws SQLException, AirportAlreadyExistsException {
+    public void updateAirport(Airport airport, String oldIataCode) throws AirportAlreadyExistsException {
         PreparedStatement ps = null;
         Connection connection = null;
 
@@ -165,15 +198,23 @@ public class AirportDAO {
             logger.error("SQLException in AirportDAO::updateAirport", ex);
         } finally {
             if (ps != null) {
-                ps.close();
+                try {
+                    ps.close();
+                } catch (SQLException ex) {
+                    logger.error("Close PreparedStatement SQLException in AirportDAO::updateAirport", ex);
+                }
             }
             if (connection != null) {
-                connection.close();
+                try {
+                    connection.close();
+                } catch (SQLException ex) {
+                    logger.error("Close Connection SQLException in AirportDAO::updateAirport", ex);
+                }
             }
         }
     }
 
-    public void deleteAirport(String iataCode) throws SQLException {
+    public void deleteAirport(String iataCode) {
         PreparedStatement ps = null;
         Connection connection = null;
 
@@ -188,10 +229,18 @@ public class AirportDAO {
             logger.error("SQLException in AirportDAO::deleteAirport", ex);
         } finally {
             if (ps != null) {
-                ps.close();
+                try {
+                    ps.close();
+                } catch (SQLException ex) {
+                    logger.error("Close PreparedStatement SQLException in AirportDAO::deleteAirport", ex);
+                }
             }
             if (connection != null) {
-                connection.close();
+                try {
+                    connection.close();
+                } catch (SQLException ex) {
+                    logger.error("Close Connection SQLException in AirportDAO::deleteAirport", ex);
+                }
             }
         }
     }

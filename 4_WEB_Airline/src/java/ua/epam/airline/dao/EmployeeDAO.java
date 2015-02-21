@@ -42,7 +42,7 @@ public class EmployeeDAO {
 
 
     // flight employees - pilots, attendants, navigators, engineers, radiomen
-    public List<Employee> getAllFlightEmployees() throws SQLException {
+    public List<Employee> getAllFlightEmployees() {
         List<Employee> flightEmployees = new ArrayList<>();
         PreparedStatement ps = null;
         ResultSet rs = null;
@@ -68,19 +68,31 @@ public class EmployeeDAO {
             logger.error("SQLException in EmployeeDAO::getAllFlightEmployees", ex);
         } finally {
             if (ps != null) {
-                ps.close();
+                try {
+                    ps.close();
+                } catch (SQLException ex) {
+                    logger.error("Close PreparedStatement SQLException in EmployeeDAO::getAllFlightEmployees", ex);
+                }
             }
             if (rs != null) {
-                rs.close();
+                try {
+                    rs.close();
+                } catch (SQLException ex) {
+                    logger.error("Close ResultSet SQLException in EmployeeDAO::getAllFlightEmployees", ex);
+                }
             }
             if (connection != null) {
-                connection.close();
+                try {
+                    connection.close();
+                } catch (SQLException ex) {
+                    logger.error("Close Connection SQLException in EmployeeDAO::getAllFlightEmployees", ex);
+                }
             }
         }
         return flightEmployees;
     }
     
-    public void createFlightEmployee(Employee employee) throws SQLException {
+    public void createFlightEmployee(Employee employee) {
         PreparedStatement ps = null;
         Connection connection = null;
 
@@ -97,15 +109,23 @@ public class EmployeeDAO {
             logger.error("SQLException in EmployeeDAO::createFlightEmployee", ex);
         } finally {
             if (ps != null) {
-                ps.close();
+                try {
+                    ps.close();
+                } catch (SQLException ex) {
+                    logger.error("Close PreparedStatement SQLException in EmployeeDAO::createFlightEmployee", ex);
+                }
             }
             if (connection != null) {
-                connection.close();
+                try {
+                    connection.close();
+                } catch (SQLException ex) {
+                    logger.error("Close Connection SQLException in EmployeeDAO::createFlightEmployee", ex);
+                }
             }
         }
     }
     
-    public void deleteEmployee(int id) throws SQLException {
+    public void deleteEmployee(int id) {
         PreparedStatement ps = null;
         Connection connection = null;
 
@@ -120,15 +140,23 @@ public class EmployeeDAO {
             logger.error("SQLException in EmployeeDAO::deleteEmployee", ex);
         } finally {
             if (ps != null) {
-                ps.close();
+                try {
+                    ps.close();
+                } catch (SQLException ex) {
+                    logger.error("Close PreparedStatement SQLException in EmployeeDAO::deleteEmployee", ex);
+                }
             }
             if (connection != null) {
-                connection.close();
+                try {
+                    connection.close();
+                } catch (SQLException ex) {
+                    logger.error("Close Connection SQLException in EmployeeDAO::deleteEmployee", ex);
+                }
             }
         }
     }
     
-    public boolean checkEmployeeLoginPassword(Employee emp) throws SQLException {
+    public boolean checkEmployeeLoginPassword(Employee emp) {
         PreparedStatement ps = null;
         ResultSet rs = null;
         Connection connection = null;
@@ -146,20 +174,32 @@ public class EmployeeDAO {
         } catch (SQLException ex) {
             logger.error("SQLException in EmployeeDAO::checkEmployeeLoginPassword", ex);
         } finally {
-            if (rs != null) {
-                rs.close();
-            }
             if (ps != null) {
-                ps.close();
+                try {
+                    ps.close();
+                } catch (SQLException ex) {
+                    logger.error("Close PreparedStatement SQLException in EmployeeDAO::checkEmployeeLoginPassword", ex);
+                }
+            }
+            if (rs != null) {
+                try {
+                    rs.close();
+                } catch (SQLException ex) {
+                    logger.error("Close ResultSet SQLException in EmployeeDAO::checkEmployeeLoginPassword", ex);
+                }
             }
             if (connection != null) {
-                connection.close();
+                try {
+                    connection.close();
+                } catch (SQLException ex) {
+                    logger.error("Close Connection SQLException in EmployeeDAO::checkEmployeeLoginPassword", ex);
+                }
             }
         }
         return false;
     }
 
-    public Employee getEmployeeInfo(Employee emp) throws SQLException {
+    public Employee getEmployeeInfo(Employee emp) {
         Employee toReturn = new Employee();
         Connection connection = null;
         PreparedStatement ps = null;
@@ -180,14 +220,26 @@ public class EmployeeDAO {
         } catch (SQLException ex) {
             logger.error("SQLException in EmployeeDAO::getEmployeeInfo", ex);
         } finally {
-            if (rs != null) {
-                rs.close();
-            }
             if (ps != null) {
-                ps.close();
+                try {
+                    ps.close();
+                } catch (SQLException ex) {
+                    logger.error("Close PreparedStatement SQLException in EmployeeDAO::getEmployeeInfo", ex);
+                }
+            }
+            if (rs != null) {
+                try {
+                    rs.close();
+                } catch (SQLException ex) {
+                    logger.error("Close ResultSet SQLException in EmployeeDAO::getEmployeeInfo", ex);
+                }
             }
             if (connection != null) {
-                connection.close();
+                try {
+                    connection.close();
+                } catch (SQLException ex) {
+                    logger.error("Close Connection SQLException in EmployeeDAO::getEmployeeInfo", ex);
+                }
             }
         }
         return toReturn;

@@ -13,6 +13,7 @@ import java.sql.Time;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
+import java.util.logging.Level;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import ua.epam.airline.exceptions.NotUniqueCabinCrewMembersException;
@@ -49,7 +50,7 @@ public class ShuttleFlightDAO {
         }
     }
 
-    public List<ShuttleFlight> getAllShuttleFlights() throws SQLException {
+    public List<ShuttleFlight> getAllShuttleFlights() {
         List<ShuttleFlight> shuttleFlights = new ArrayList<>();
         PreparedStatement ps = null;
         ResultSet rs = null;
@@ -88,22 +89,38 @@ public class ShuttleFlightDAO {
             logger.error("SQLException in ShuttleFlightDAO::getAllShuttleFlights", ex);
         } finally {
             if (ps != null) {
-                ps.close();
+                try {
+                    ps.close();
+                } catch (SQLException ex) {
+                    logger.error("Close PreparedStatement SQLException in ShuttleFlightDAO::getAllShuttleFlights", ex);
+                }
             }
             if (rs != null) {
-                rs.close();
+                try {
+                    rs.close();
+                } catch (SQLException ex) {
+                    logger.error("Close ResultSet SQLException in ShuttleFlightDAO::getAllShuttleFlights", ex);
+                }
             }
             if (rs1 != null) {
-                rs1.close();
+                try {
+                    rs1.close();
+                } catch (SQLException ex) {
+                    logger.error("Close ResultSet SQLException in ShuttleFlightDAO::getAllShuttleFlights", ex);
+                }
             }
             if (connection != null) {
-                connection.close();
+                try {
+                    connection.close();
+                } catch (SQLException ex) {
+                    logger.error("Close Connection SQLException in ShuttleFlightDAO::getAllShuttleFlights", ex);
+                }
             }
         }
         return shuttleFlights;
     }
 
-    public boolean isFreeAircraft(Date departureDate, Time departureTime, Date arrivalDate, Time arrivalTime, String aircraftReg) throws SQLException {
+    public boolean isFreeAircraft(Date departureDate, Time departureTime, Date arrivalDate, Time arrivalTime, String aircraftReg) {
         PreparedStatement ps = null;
         ResultSet rs = null;
         Connection connection = null;
@@ -135,20 +152,32 @@ public class ShuttleFlightDAO {
             logger.error("SQLException in ShuttleFlightDAO::isFreeAircraft", ex);
         } finally {
             if (ps != null) {
-                ps.close();
+                try {
+                    ps.close();
+                } catch (SQLException ex) {
+                    logger.error("Close PreparedStatement SQLException in ShuttleFlightDAO::isFreeAircraft", ex);
+                }
             }
             if (rs != null) {
-                rs.close();
+                try {
+                    rs.close();
+                } catch (SQLException ex) {
+                    logger.error("Close ResultSet SQLException in ShuttleFlightDAO::isFreeAircraft", ex);
+                }
             }
             if (connection != null) {
-                connection.close();
+                try {
+                    connection.close();
+                } catch (SQLException ex) {
+                    logger.error("Close Connection SQLException in ShuttleFlightDAO::isFreeAircraft", ex);
+                }
             }
         }
               
         return true;
     }
     
-    public void createShuttleFlight(Date date, String flightNumber, String aircraftReg) throws SQLException, ShuttleFlightAlreadyExistsException {
+    public void createShuttleFlight(Date date, String flightNumber, String aircraftReg) throws ShuttleFlightAlreadyExistsException {
         PreparedStatement ps = null;
         Connection connection = null;
 
@@ -167,15 +196,23 @@ public class ShuttleFlightDAO {
             logger.error("SQLException in ShuttleFlightDAO::createShuttleFlight", ex);
         } finally {
             if (ps != null) {
-                ps.close();
+                try {
+                    ps.close();
+                } catch (SQLException ex) {
+                    logger.error("Close PreparedStatement SQLException in ShuttleFlightDAO::createShuttleFlight", ex);
+                }
             }
             if (connection != null) {
-                connection.close();
+                try {
+                    connection.close();
+                } catch (SQLException ex) {
+                    logger.error("Close Connection SQLException in ShuttleFlightDAO::createShuttleFlight", ex);
+                }
             }
         }
     }
     
-    public List<Employee> getAssignedCrewByPosition(Date date, String flightNumber, String position) throws SQLException {
+    public List<Employee> getAssignedCrewByPosition(Date date, String flightNumber, String position) {
         List<Employee> employees = new ArrayList<>();
         PreparedStatement ps = null;
         ResultSet rs = null;
@@ -203,20 +240,32 @@ public class ShuttleFlightDAO {
             logger.error("SQLException in ShuttleFlightDAO::getAssignedCrewByPosition", ex);
         } finally {
             if (ps != null) {
-                ps.close();
+                try {
+                    ps.close();
+                } catch (SQLException ex) {
+                    logger.error("Close PreparedStatement SQLException in ShuttleFlightDAO::getAssignedCrewByPosition", ex);
+                }
             }
             if (rs != null) {
-                rs.close();
+                try {
+                    rs.close();
+                } catch (SQLException ex) {
+                    logger.error("Close ResultSet SQLException in ShuttleFlightDAO::getAssignedCrewByPosition", ex);
+                }
             }
             if (connection != null) {
-                connection.close();
+                try {
+                    connection.close();
+                } catch (SQLException ex) {
+                    logger.error("Close Connection SQLException in ShuttleFlightDAO::getAssignedCrewByPosition", ex);
+                }
             }
         }
 
         return employees;
     }
 
-    public Aircraft getAssignedAircraft(Date date, String flightNumber) throws SQLException {
+    public Aircraft getAssignedAircraft(Date date, String flightNumber) {
         Aircraft aircraft = new Aircraft();
         PreparedStatement ps = null;
         ResultSet rs = null;
@@ -244,21 +293,33 @@ public class ShuttleFlightDAO {
         } catch (SQLException ex) {
             logger.error("SQLException in ShuttleFlightDAO::hasCabinCrew", ex);
         } finally {
-            if (rs != null) {
-                rs.close();
-            }
             if (ps != null) {
-                ps.close();
+                try {
+                    ps.close();
+                } catch (SQLException ex) {
+                    logger.error("Close PreparedStatement SQLException in ShuttleFlightDAO::hasCabinCrew", ex);
+                }
+            }
+            if (rs != null) {
+                try {
+                    rs.close();
+                } catch (SQLException ex) {
+                    logger.error("Close ResultSet SQLException in ShuttleFlightDAO::hasCabinCrew", ex);
+                }
             }
             if (connection != null) {
-                connection.close();
+                try {
+                    connection.close();
+                } catch (SQLException ex) {
+                    logger.error("Close Connection SQLException in ShuttleFlightDAO::hasCabinCrew", ex);
+                }
             }
         }
 
         return aircraft;
     }
 
-    public List<Employee> getFreeCabinCrewByPosition(Date departureDate, Time departureTime, Date arrivalDate, Time arrivalTime, String position) throws SQLException {
+    public List<Employee> getFreeCabinCrewByPosition(Date departureDate, Time departureTime, Date arrivalDate, Time arrivalTime, String position) {
         List<Employee> employees = new ArrayList<>();
         PreparedStatement ps = null;
         ResultSet rs = null;
@@ -296,19 +357,31 @@ public class ShuttleFlightDAO {
             logger.error("SQLException in ShuttleFlightDAO::getFreeCabinCrewByPosition", ex);
         } finally {
             if (ps != null) {
-                ps.close();
+                try {
+                    ps.close();
+                } catch (SQLException ex) {
+                    logger.error("Close PreparedStatement SQLException in ShuttleFlightDAO::getFreeCabinCrewByPosition", ex);
+                }
             }
             if (rs != null) {
-                rs.close();
+                try {
+                    rs.close();
+                } catch (SQLException ex) {
+                    logger.error("Close ResultSet SQLException in ShuttleFlightDAO::getFreeCabinCrewByPosition", ex);
+                }
             }
             if (connection != null) {
-                connection.close();
+                try {
+                    connection.close();
+                } catch (SQLException ex) {
+                    logger.error("Close Connection SQLException in ShuttleFlightDAO::getFreeCabinCrewByPosition", ex);
+                }
             }
         }
         return employees;
     }
 
-    public void assignCabinCrewOnShuttleFlight(List<Integer> employeeId, Date date, String flightNumber) throws SQLException, NotUniqueCabinCrewMembersException {
+    public void assignCabinCrewOnShuttleFlight(List<Integer> employeeId, Date date, String flightNumber) throws NotUniqueCabinCrewMembersException {
         PreparedStatement ps = null;
         Connection connection = null;
         try {
@@ -338,20 +411,31 @@ public class ShuttleFlightDAO {
         } catch (SQLIntegrityConstraintViolationException ex) {
             throw new NotUniqueCabinCrewMembersException("SQLIntegrityConstraintViolationException in ShuttleFlightDAO::assignCabinCrewOnShuttleFlight (inserting duplicate key)", ex);
         } catch (SQLException ex) {
-            connection.rollback();
-            logger.error("SQLException in ShuttleFlightDAO::assignCabinCrewOnShuttleFlight", ex);
+            try {
+                connection.rollback();
+                logger.error("SQLException in ShuttleFlightDAO::assignCabinCrewOnShuttleFlight", ex);
+            } catch (SQLException ex1) {
+                logger.error("Rollback SQLException in ShuttleFlightDAO::assignCabinCrewOnShuttleFlight", ex1);
+            }
         } finally {
             if (ps != null) {
-                ps.close();
+                try {
+                    ps.close();
+                } catch (SQLException ex) {
+                    logger.error("Close PreparedStatement SQLException in ShuttleFlightDAO::assignCabinCrewOnShuttleFlight", ex);
+                }
             }
-
             if (connection != null) {
-                connection.close();
+                try {
+                    connection.close();
+                } catch (SQLException ex) {
+                    logger.error("Close Connection SQLException in ShuttleFlightDAO::assignCabinCrewOnShuttleFlight", ex);
+                }
             }
         }
     }
     
-    public void deleteShuttleFlight(Date date, String flightNumber) throws SQLException {
+    public void deleteShuttleFlight(Date date, String flightNumber) {
         PreparedStatement ps = null;
         Connection connection = null;
 
@@ -367,10 +451,18 @@ public class ShuttleFlightDAO {
             logger.error("SQLException in ShuttleFlightDAO::deleteShuttleFlight", ex);
         } finally {
             if (ps != null) {
-                ps.close();
+                try {
+                    ps.close();
+                } catch (SQLException ex) {
+                    logger.error("Close PreparedStatement SQLException in ShuttleFlightDAO::deleteShuttleFlight", ex);
+                }
             }
             if (connection != null) {
-                connection.close();
+                try {
+                    connection.close();
+                } catch (SQLException ex) {
+                    logger.error("Close Connection SQLException in ShuttleFlightDAO::deleteShuttleFlight", ex);
+                }
             }
         }
     }
